@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maafin Aku ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    width:300px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+p{
+    font-size:16px;
+    margin:15px 0;
+}
+
+button{
+    padding:10px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.yes{
+    background:#4CAF50;
+    color:white;
+}
+
+.no{
+    background:#ff4d4d;
+    color:white;
+    position:fixed;
+    top:60%;
+    left:60%;
+}
+
+#result{
+    margin-top:15px;
+}
+
+img{
+    width:220px;
+    border-radius:15px;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <p>Maafin aku yaa umaa cantik 🥺❤️</p>
+
+    <button class="yes" onclick="iya()">Iya ❤️</button>
+    <button class="no" id="noBtn">Tidak 😡</button>
+
+    <div id="result"></div>
+</div>
+
+<audio id="musik" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+function kabur(){
+    const maxX = window.innerWidth - 100;
+    const maxY = window.innerHeight - 100;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", kabur);
+noBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    kabur();
+});
+
+function iya(){
+    document.getElementById("result").innerHTML = `
+        <h2 style="color:#ff4d6d;">Yeayyy 🥰❤️</h2>
+        <img src="foto.jpg">
+        <p>Makasih yaa udah maafin aku 🥺❤️</p>
+    `;
+
+    document.getElementById("musik").play();
+}
+</script>
+
+</body>
+</html>
